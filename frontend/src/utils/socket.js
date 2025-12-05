@@ -3,14 +3,24 @@ import { useAuthStore } from '../store/authStore';
 
 let socket = null;
 
+// Get backend URL from environment or use localhost for development
+const getBackendUrl = () => {
+  const apiUrl = import.meta.env.VITE_API_URL;
+  if (apiUrl) {
+    // Extract base URL from API URL (remove /api if present)
+    return apiUrl.replace('/api', '');
+  }
+  return 'http://localhost:3001';
+};
+
 export const connectSocket = (sessionId) => {
   const { token, user } = useAuthStore.getState();
-  
+
   if (socket?.connected) {
     return socket;
   }
 
-  socket = io('http://localhost:3001', {
+  socket = io(getBackendUrl(), {
     auth: {
       token,
       userId: user?.id
