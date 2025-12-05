@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Custom styles for select dropdowns */
+select {
+  background-color: rgba(17, 24, 39, 0.9) !important;
+  color: #ffffff !important;
+}
+
+select option {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+  color: #ffffff !important;
+  padding: 8px;
+}
+
+select:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #0ea5e9;
+}
+
